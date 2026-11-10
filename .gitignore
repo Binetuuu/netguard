@@ -6,3 +6,5 @@ data/KDDTest+.txt
 preview/
 train_log.txt
 screenshots_tmp/
+demo/raw/
+demo/frames/
