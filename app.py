@@ -16,7 +16,7 @@ ART = os.path.join(HERE, "artifacts")
 COLORS = {"normal": "#0f9d74", "DoS": "#d64545", "Probe": "#e8a23a",
           "R2L": "#7b5cd6", "U2R": "#1f2933", "Suspect (inconnu)": "#e05fa0"}
 
-st.set_page_config(page_title="NetGuard – Détection d'intrusions", page_icon="🛡️", layout="wide")
+st.set_page_config(page_title="NetGuard – Détection d'intrusions", layout="wide")
 
 
 @st.cache_resource
@@ -51,7 +51,7 @@ def predict(df: pd.DataFrame, m, conf_thr: float):
     return out, X, proba
 
 
-st.title("🛡️ NetGuard")
+st.title("NetGuard")
 st.caption("Détection d'intrusions réseau robuste aux données déséquilibrées et aux attaques inédites "
            "— DataNova 2026, problème DN-CY-01")
 
@@ -90,8 +90,8 @@ else:
 
 res, X, proba = predict(df, m, conf_thr)
 
-tab1, tab2, tab3, tab4 = st.tabs(["📊 Analyse du trafic", "🔍 Expliquer une alerte",
-                                  "📈 Performance du modèle", "ℹ️ À propos"])
+tab1, tab2, tab3, tab4 = st.tabs(["Analyse du trafic", "Expliquer une alerte",
+                                  "Performance du modèle", "À propos"])
 
 with tab1:
     n = len(res)
@@ -130,7 +130,7 @@ with tab1:
             "src_bytes", "dst_bytes", "count", "serror_rate"] + (["attack"] if "attack" in res else [])
     st.dataframe(view[cols].rename(columns={"attack": "vérité terrain"}),
                  width="stretch", height=320)
-    st.download_button("⬇️ Télécharger le rapport (CSV)", res.to_csv(index=False).encode("utf-8"),
+    st.download_button("Télécharger le rapport (CSV)", res.to_csv(index=False).encode("utf-8"),
                        "netguard_rapport.csv", "text/csv")
 
 with tab2:
