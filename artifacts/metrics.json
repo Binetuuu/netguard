@@ -1,0 +1,225 @@
+{
+  "baseline": {
+    "macro_f1": 0.5299940301672941,
+    "weighted_f1": 0.7323738417672645,
+    "accuracy": 0.7735982966643009,
+    "per_class_recall": {
+      "normal": 0.9714756461744414,
+      "DoS": 0.8429873960847413,
+      "Probe": 0.6389921520033044,
+      "R2L": 0.05784551437478351,
+      "U2R": 0.07462686567164178
+    },
+    "per_class_f1": {
+      "normal": 0.798746930827195,
+      "DoS": 0.8995564458434683,
+      "Probe": 0.7109375,
+      "R2L": 0.10915032679738562,
+      "U2R": 0.13157894736842105
+    },
+    "attack_detection_rate": 0.6511337956830048,
+    "false_alarm_rate": 0.028524353825558645,
+    "attack_precision": 0.9679138190663732
+  },
+  "netguard_classifier": {
+    "macro_f1": 0.6229651154061233,
+    "weighted_f1": 0.7592600606539038,
+    "accuracy": 0.787304826117814,
+    "per_class_recall": {
+      "normal": 0.9713726701678509,
+      "DoS": 0.8405738803968893,
+      "Probe": 0.6480793060718711,
+      "R2L": 0.1589885694492553,
+      "U2R": 0.2835820895522388
+    },
+    "per_class_f1": {
+      "normal": 0.8074124796713174,
+      "DoS": 0.8981375358166189,
+      "Probe": 0.7267253358036128,
+      "R2L": 0.2739480752014324,
+      "U2R": 0.40860215053763443
+    },
+    "attack_detection_rate": 0.6710044416738097,
+    "false_alarm_rate": 0.02862732983214911,
+    "attack_precision": 0.9687253909326133
+  },
+  "netguard_hybrid": {
+    "macro_f1": 0.692291960779989,
+    "weighted_f1": 0.8039281798275374,
+    "accuracy": 0.8288236337828248,
+    "per_class_recall": {
+      "normal": 0.9677685099371847,
+      "DoS": 0.8676588897827836,
+      "Probe": 0.9070631970260223,
+      "R2L": 0.20471077242812608,
+      "U2R": 0.43283582089552236
+    },
+    "per_class_f1": {
+      "normal": 0.8494599358250101,
+      "DoS": 0.9135959339263025,
+      "Probe": 0.8472222222222222,
+      "R2L": 0.3379073756432247,
+      "U2R": 0.5132743362831859
+    },
+    "attack_detection_rate": 0.764825060391179,
+    "false_alarm_rate": 0.032231490062815366,
+    "attack_precision": 0.9690955766192733
+  },
+  "unseen_attack_detection": {
+    "baseline": 0.3586666666666667,
+    "netguard_classifier": 0.3464,
+    "netguard_hybrid": 0.6266666666666667,
+    "n_samples": 3750
+  },
+  "unseen_attack_types": [
+    "apache2",
+    "httptunnel",
+    "mailbomb",
+    "mscan",
+    "named",
+    "processtable",
+    "ps",
+    "saint",
+    "sendmail",
+    "snmpgetattack",
+    "snmpguess",
+    "sqlattack",
+    "udpstorm",
+    "worm",
+    "xlock",
+    "xsnoop",
+    "xterm"
+  ],
+  "train_counts": {
+    "normal": 67343,
+    "DoS": 45927,
+    "Probe": 11656,
+    "R2L": 995,
+    "U2R": 52
+  },
+  "test_counts": {
+    "normal": 9711,
+    "DoS": 7458,
+    "R2L": 2887,
+    "Probe": 2421,
+    "U2R": 67
+  },
+  "smote_counts": {
+    "normal": 67343,
+    "DoS": 45927,
+    "Probe": 11656,
+    "R2L": 8000,
+    "U2R": 3000
+  },
+  "top_features": [
+    "src_bytes",
+    "count",
+    "dst_host_srv_count",
+    "dst_bytes",
+    "dst_host_same_src_port_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_count",
+    "root_shell"
+  ],
+  "shap_importance": [
+    [
+      "src_bytes",
+      1.1037042140960693
+    ],
+    [
+      "count",
+      0.7395638227462769
+    ],
+    [
+      "dst_host_srv_count",
+      0.7130126357078552
+    ],
+    [
+      "dst_bytes",
+      0.43080058693885803
+    ],
+    [
+      "dst_host_same_src_port_rate",
+      0.40939900279045105
+    ],
+    [
+      "dst_host_diff_srv_rate",
+      0.3686850965023041
+    ],
+    [
+      "dst_host_serror_rate",
+      0.33993983268737793
+    ],
+    [
+      "dst_host_rerror_rate",
+      0.27485233545303345
+    ],
+    [
+      "dst_host_count",
+      0.2409164011478424
+    ],
+    [
+      "root_shell",
+      0.2372675985097885
+    ],
+    [
+      "logged_in",
+      0.22544778883457184
+    ],
+    [
+      "dst_host_same_srv_rate",
+      0.21714258193969727
+    ],
+    [
+      "service_telnet",
+      0.20610785484313965
+    ],
+    [
+      "srv_count",
+      0.20530566573143005
+    ],
+    [
+      "service_private",
+      0.20306433737277985
+    ]
+  ],
+  "confusion_matrix_hybrid": [
+    [
+      9398,
+      70,
+      224,
+      13,
+      6
+    ],
+    [
+      714,
+      6471,
+      273,
+      0,
+      0
+    ],
+    [
+      58,
+      167,
+      2196,
+      0,
+      0
+    ],
+    [
+      2217,
+      0,
+      68,
+      591,
+      11
+    ],
+    [
+      29,
+      0,
+      2,
+      7,
+      29
+    ]
+  ]
+}
