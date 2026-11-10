@@ -17,7 +17,7 @@ def settle(page, ms=3500):
 with sync_playwright() as p:
     b = p.chromium.launch()
     page = b.new_page(viewport={"width": 1440, "height": 900}, device_scale_factor=2,
-                      color_scheme="light")
+                      color_scheme="dark")
     page.goto(URL)
     page.get_by_text("Connexions analysées").wait_for(timeout=90000)
     settle(page, 5000)
